@@ -1,0 +1,13 @@
+carrental\CarDeleted.class
+carrental\ManagementApplication.class
+carrental\CarRegistered.class
+carrental\PolicyHandler.class
+carrental\CarManagement.class
+carrental\CarUpdated.class
+carrental\config\kafka\KafkaProcessor.class
+carrental\CarManagementController.class
+carrental\AbstractEvent$1.class
+carrental\AbstractEvent.class
+carrental\CarRented.class
+carrental\CarManagementRepository.class
+carrental\CarRentalCanceled.class
