@@ -1,0 +1,29 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    autoscaling.alpha.kubernetes.io/conditions: '[{"type":"AbleToScale","status":"True","lastTransitionTime":"2020-08-04T12:22:05Z","reason":"ScaleDownStabilized","message":"recent
+      recommendations were higher than current one, applying the highest recent recommendation"},{"type":"ScalingActive","status":"True","lastTransitionTime":"2020-08-04T12:24:08Z","reason":"ValidMetricFound","message":"the
+      HPA was able to successfully calculate a replica count from cpu resource utilization
+      (percentage of request)"},{"type":"ScalingLimited","status":"False","lastTransitionTime":"2020-08-04T12:31:02Z","reason":"DesiredWithinRange","message":"the
+      desired count is within the acceptable range"}]'
+    autoscaling.alpha.kubernetes.io/current-metrics: '[{"type":"Resource","resource":{"name":"cpu","currentAverageUtilization":8,"currentAverageValue":"18m"}}]'
+  creationTimestamp: "2020-08-04T11:42:36Z"
+  name: management
+  namespace: default
+  resourceVersion: "51149"
+  selfLink: /apis/autoscaling/v1/namespaces/default/horizontalpodautoscalers/management
+  uid: b25d0e84-7c8b-49b7-8127-27e130929dee
+spec:
+  maxReplicas: 10
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: management
+  targetCPUUtilizationPercentage: 20
+status:
+  currentCPUUtilizationPercentage: 8
+  currentReplicas: 10
+  desiredReplicas: 10
+  lastScaleTime: "2020-08-04T12:24:38Z"

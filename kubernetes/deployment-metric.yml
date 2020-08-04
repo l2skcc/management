@@ -4,6 +4,7 @@ metadata:
   name: management
   labels:
     app: management
+    run: management
 spec:
   replicas: 1
   selector:
@@ -13,10 +14,16 @@ spec:
     metadata:
       labels:
         app: management
+        run: management
     spec:
       containers:
         - name: management
           image: 496278789073.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-skcc-team2-management:v1
+          resources:
+            limits: 
+              cpu: 500m
+            requests:
+              cpu: 200m
           ports:
             - containerPort: 8080
           readinessProbe:
